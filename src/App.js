@@ -47,7 +47,8 @@ class HorizontalLoginForm extends Component {
 
         return (
             <Card className="gx-card gx-mt-3 ant-col-lg-8 ant-col-lg-offset-8 ant-col-md-12
-             ant-col-md-offset-6 ant-col-sm-offset-5 ant-col-sm-14 ant-col-xs-offset-2 ant-col-xs-20" title="Horizontal Login Form">
+             ant-col-md-offset-6 ant-col-sm-offset-5 ant-col-sm-14 ant-col-xs-offset-2 ant-col-xs-20"
+                  title="Horizontal Login Form">
                 <Form
                     initialValues={{remember: true}}
                     name="basic"
@@ -293,7 +294,7 @@ const Registration = () => {
 
                 {map()}
 
-                <Button type="primary" disabled={!coords} htmlType="submit" className="gx-float-right">
+                <Button type="primary" disabled={!coords} htmlType="submit" className="gx-float-right gx-mt-2">
                     Register
                 </Button>
             </Form>
@@ -305,23 +306,24 @@ const Registration = () => {
 
 const MyMap = ({setCoords, coords}) => {
 
-    useEffect(()=>{
-        if (navigator.geolocation){
+    useEffect(() => {
+        if (navigator.geolocation) {
             alert('Please click "allow" or "разрешить" to give access!');
             navigator.geolocation.getCurrentPosition(getCoordinates);
-        }else {
+        } else {
             alert('Geolocation is not supported by this browser!')
         }
     }, []);
 
-    function getCoordinates(position){
+    function getCoordinates(position) {
         setCoords([position.coords.latitude, position.coords.latitude])
     }
 
     return (
         <>
-            {coords ? <h4 className="gx-text-center gx-text-green">Your location has been taken</h4>:
-                <h4 className="gx-text-center gx-text-danger">Your location hasn't been taken. Please check the settings!</h4>}
+            {coords ? <h4 className="gx-text-center gx-text-green">Your location has been taken</h4> :
+                <h4 className="gx-text-center gx-text-danger">Your location hasn't been taken. Please check the
+                    settings!</h4>}
 
         </>
     )
@@ -447,7 +449,7 @@ const YandexMap = ({setCoords, setFullScreen, fullScreen}) => {
                     onClick={(e) => clickOnMap(e)}
                 >
                     <ZoomControl options={{float: 'right'}}/>
-                    <FullscreenControl onClick={()=>setFullScreen(!fullScreen)}/>
+                    <FullscreenControl onClick={() => setFullScreen(!fullScreen)}/>
                     <Placemark geometry={[lat, lng]} options={{
                         iconImageSize: [30, 42],
                         iconImageOffset: [-15, -42]
