@@ -16,17 +16,6 @@ const formItemLayout = {
         sm: {span: 16},
     },
 };
-//
-// const mapItemLayout={
-//     labelCol: {
-//         xs: {span: 0},
-//         sm: {span: 0},
-//     },
-//     wrapperCol: {
-//         xs: {span: 24},
-//         sm: {span: 24},
-//     },
-// };
 
 const Registration = () => {
     const [form] = Form.useForm();
@@ -217,7 +206,7 @@ const Registration = () => {
 
                 {map()}
 
-                <Button type="primary" disabled={!coords} htmlType="submit" className="gx-float-right gx-w-25">
+                <Button type="primary" disabled={!coords} htmlType="submit" className="gx-float-right">
                     Register
                 </Button>
             </Form>
