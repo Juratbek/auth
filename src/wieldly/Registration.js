@@ -8,19 +8,31 @@ const {Option} = Select;
 
 const formItemLayout = {
     labelCol: {
-        xs: {span: 24},
+        xs: {span: 16},
         sm: {span: 8},
     },
     wrapperCol: {
-        xs: {span: 24},
-        sm: {span: 24},
+        xs: {span: 18},
+        sm: {span: 16},
     },
 };
+//
+// const mapItemLayout={
+//     labelCol: {
+//         xs: {span: 0},
+//         sm: {span: 0},
+//     },
+//     wrapperCol: {
+//         xs: {span: 24},
+//         sm: {span: 24},
+//     },
+// };
 
 const Registration = () => {
     const [form] = Form.useForm();
     const [coords, setCoords] = useState(null);
     const [letGeolocation, setLetGeolocation] = useState(null);
+    const [mapFullScreen, setMapFullScreen] = useState(false);
 
     const onFinish = values => {
         console.log('Received values of form: ', values);
@@ -45,15 +57,20 @@ const Registration = () => {
                 </Card>
             )
         } else if (letGeolocation) {
-            return <Map setCoords={setCoords}/>
+            return <Map coords={coords} setCoords={setCoords}/>
         } else if (!letGeolocation) {
-            return <YandexMap setCoords={setCoords}/>
+            return <YandexMap fullScreen={mapFullScreen} setFullScreen={setMapFullScreen} setCoords={setCoords}/>
         }
 
     };
 
+    const style = () => {
+        return mapFullScreen ? null : 'gx-mt-3'
+    };
+
     return (
-        <Card className="gx-card ant-col-md-18 gx-mt-3 ant-col-offset-3" title="Registration Form">
+        <Card className={`gx-card ${style()} ant-col-md-18 ant-col-sm-18 ant-col-xs-20
+         ant-col-xs-offset-2 ant-col-lg-offset-3 ant-col-offset-3`} title="Registration Form">
             <Form
                 {...formItemLayout}
                 form={form}
@@ -200,7 +217,7 @@ const Registration = () => {
 
                 {map()}
 
-                <Button type="primary" htmlType="submit" className="gx-float-right gx-w-25">
+                <Button type="primary" disabled={!coords} htmlType="submit" className="gx-float-right gx-w-25">
                     Register
                 </Button>
             </Form>

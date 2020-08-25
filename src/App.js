@@ -7,12 +7,10 @@ import YandexMap from "./wieldly/YandexMap";
 
 function App() {
     return (
-        <div className="container">
-            <div className="row">
-                <Route exact path="/" component={HorizontalLoginForm}/>
-                <Route exact path="/sign_up" component={Registration}/>
-                <Route exact path="/map" component={YandexMap}/>
-            </div>
+        <div>
+            <Route exact path="/" component={HorizontalLoginForm}/>
+            <Route exact path="/sign_up" component={Registration}/>
+            <Route exact path="/map" component={YandexMap}/>
         </div>
     );
 }

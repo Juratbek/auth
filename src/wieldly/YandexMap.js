@@ -80,7 +80,7 @@ const cities = [
 ];
 
 
-const YandexMap = ({setCoords}) => {
+const YandexMap = ({setCoords, setFullScreen, fullScreen}) => {
 
     const [lat, setLat] = useState(41.316440);
     const [lng, setLng] = useState(69.294860);
@@ -129,7 +129,7 @@ const YandexMap = ({setCoords}) => {
                     onClick={(e) => clickOnMap(e)}
                 >
                     <ZoomControl options={{float: 'right'}}/>
-                    <FullscreenControl/>
+                    <FullscreenControl onClick={()=>setFullScreen(!fullScreen)}/>
                     <Placemark geometry={[lat, lng]} options={{
                         iconImageSize: [30, 42],
                         iconImageOffset: [-15, -42]

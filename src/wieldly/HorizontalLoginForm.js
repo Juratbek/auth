@@ -21,7 +21,8 @@ class HorizontalLoginForm extends Component {
         // const {showMessage, loader, alertMessage} = this.props;
 
         return (
-            <Card className="gx-card ant-col-md-10 ant-col-offset-7" title="Horizontal Login Form">
+            <Card className="gx-card gx-mt-3 ant-col-lg-8 ant-col-lg-offset-8 ant-col-md-12
+             ant-col-md-offset-6 ant-col-sm-offset-5 ant-col-sm-14 ant-col-xs-offset-2 ant-col-xs-20" title="Horizontal Login Form">
                 <Form
                     initialValues={{remember: true}}
                     name="basic"
@@ -32,7 +33,7 @@ class HorizontalLoginForm extends Component {
                               name="email"
                               initialValue="demo@example.com">
 
-                        <Input prefix={<UserOutlined style={{color: 'rgba(0,0,0,.25)'}}/>}
+                        <Input className="gx-w-100" prefix={<UserOutlined style={{color: 'rgba(0,0,0,.25)'}}/>}
                                placeholder="Email"/>
                     </FormItem>
                     <FormItem rules={[{required: true, message: 'Please input your Password!'}]}
